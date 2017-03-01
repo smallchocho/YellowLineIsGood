@@ -11,16 +11,18 @@ import GoogleMaps
 import MapKit
 
 class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate{
-    @IBOutlet weak var yellowLineMarkerSnippet: UIView!
+    @IBOutlet var yellowLineMarkerSnippet: UIView!
     @IBOutlet weak var triangleView: UIView!
     @IBAction func showNowLoccation(_ sender: UIButton) {
+        
+        print("點現在位置")
         locationManager.startUpdatingLocation()
-        polylineOfYellowLine?.map = nil
     }
     var mapView:GMSMapView!
     var locationManager = CLLocationManager()
     var polylineOfYellowLine:GMSPolyline?
     var drawView = DrawSpecificView()
+    var tapMarker:GMSMarker!
     var yellowlineData =
         ["yellowLine":
             [
@@ -51,7 +53,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDe
         super.viewDidLoad()
         //設定locationManager的delegate
         locationManager.delegate = self
-        yellowLineMarkerSnippet.isHidden = true
         drawView.drawTriangle(superView: self.triangleView, fillCgColor: UIColor(colorLiteralRed: 197/255, green: 227/255, blue: 247/255, alpha: 1).cgColor)
         //設定MapView並加入SuperView
         setUpMapView()
@@ -61,7 +62,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDe
         locationManager.startUpdatingLocation()
         //生成MapMarker
         creatMapMarker(insertMapView: self.mapView)
-        polylineOfYellowLine = drawYellowLine(mapView: self.mapView)
+//        polylineOfYellowLine = drawYellowLine(mapView: self.mapView)
         
         
         //Location Manager code to fetch current location
@@ -117,8 +118,6 @@ extension MapViewController{
     func creatMapMarker(insertMapView:GMSMapView){
         let count = self.yellowlineData["yellowLine"]!.count
         for i in 0...count - 1{
-            let title = self.yellowlineData["yellowLine"]?[i]["title"] as! String
-            let info = self.yellowlineData["yellowLine"]?[i]["freeTime"] as! String
             let address = self.yellowlineData["yellowLine"]?[i]["startPoint"] as! String
             print(address)
             let geocoder = CLGeocoder()
@@ -144,8 +143,6 @@ extension MapViewController{
                 print(location.coordinate)
                 markerLocation = location.coordinate
                 marker.position = markerLocation
-                marker.title = title
-                marker.snippet = info
                 marker.appearAnimation = kGMSMarkerAnimationPop
                 marker.map = insertMapView
             }
@@ -171,27 +168,37 @@ extension MapViewController{
 }
 extension MapViewController{
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-        self.yellowLineMarkerSnippet.isHidden = gesture
-    }
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        
-    }
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-       
+        if gesture == true{
+            yellowLineMarkerSnippet.removeFromSuperview()
+        }
     }
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        
-        self.yellowLineMarkerSnippet.isHidden = true
+        yellowLineMarkerSnippet.removeFromSuperview()
+        print("按其他地方")
     }
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let latitude = marker.position.latitude + 0.017
-        let longitude = marker.position.longitude
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 12)
-        DispatchQueue.main.async {
-            mapView.animate(to: camera)
-        }
-        self.yellowLineMarkerSnippet.isHidden = false
+        tapMarker = marker
+        
+        let camera = GMSCameraPosition.camera(withLatitude: marker.position.latitude+0.006, longitude: marker.position.longitude, zoom: self.mapView.camera.zoom)
+        mapView.animate(to: camera)
+        yellowLineMarkerSnippet.removeFromSuperview()
+        self.view.addSubview(yellowLineMarkerSnippet)
+        var viewPoint = mapView.projection.point(for: tapMarker.position)
+        viewPoint.y -= yellowLineMarkerSnippet.frame.height/1.25
+        yellowLineMarkerSnippet.center = viewPoint
+//        yellowLineMarkerSnippet.center = mapView.projection.point(for: location)
+        print("按Marker")
+        
         return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        if tapMarker != nil{
+            var viewPoint = mapView.projection.point(for: tapMarker.position)
+            viewPoint.y -= yellowLineMarkerSnippet.frame.height/1.25
+            yellowLineMarkerSnippet.center = viewPoint
+        }
+        print("座標改變中...")
     }
 }
 
