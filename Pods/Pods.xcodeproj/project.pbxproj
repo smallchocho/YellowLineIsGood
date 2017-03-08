@@ -7,61 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81E1ACA81FC1B0E0B6A7B87FBBD77047 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		C84085F495B94E110639F0C1BA39B52C /* Pods-YellowLineIsGood-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44F08B16FF8CF5AE7FC6984C84BFE52A /* Pods-YellowLineIsGood-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FECD7CC7E14DCA11A68A117FB3587CEB /* Pods-YellowLineIsGood-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5939F3D34A39F277257BBA9AC2F3E0E0 /* Pods-YellowLineIsGood-dummy.m */; };
+		1AE97509181B4F74DF7BCBF2FED205B8 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 336FACD7A5DDB6B2B0AF556217C9D395 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2571B110A14340B6FDB2C2EA88B0CAD3 /* Pods-YellowLineIsGood-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5939F3D34A39F277257BBA9AC2F3E0E0 /* Pods-YellowLineIsGood-dummy.m */; };
+		69C4EDCA4FE551A90F821ADF8480D719 /* Pods-YellowLineIsGood-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44F08B16FF8CF5AE7FC6984C84BFE52A /* Pods-YellowLineIsGood-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		720FF415F1F6165A378CDEC18CB95714 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A456AC48644BBD4BFA04C021D921F0 /* SwiftyJSON-dummy.m */; };
+		9ED63C288D132822C06EC681159A2591 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		AABA5AF378BB40E3BB4A523883C477DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		F0161EFBB4A20CEE5F027543007EDFD7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A694219428A0D2A9F12572807A116D6C /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BF6FFA1B8C0E482AAAC988072E78CCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01B3E008D0E289805BE261785DC4F8A7;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0509B689C1E9E7322FBEB962D58E6FD7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9676C132D1207B58948BB07B555763 /* Pods-YellowLineIsGood-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YellowLineIsGood-resources.sh"; sourceTree = "<group>"; };
-		36DB83CB4279B90D59054691B89501D1 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
-		40CFCAB963030CF21D960C1FE1253D51 /* Pods_YellowLineIsGood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YellowLineIsGood.framework; path = "Pods-YellowLineIsGood.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		336FACD7A5DDB6B2B0AF556217C9D395 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		348783CA6E37031577C9E0C1CDC5EA86 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F80515D87B754D49D007F6E0BD39C6 /* Pods-YellowLineIsGood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YellowLineIsGood.release.xcconfig"; sourceTree = "<group>"; };
 		44F08B16FF8CF5AE7FC6984C84BFE52A /* Pods-YellowLineIsGood-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YellowLineIsGood-umbrella.h"; sourceTree = "<group>"; };
-		4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		48A456AC48644BBD4BFA04C021D921F0 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		58D6959096B3281450730B0D718188CF /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		5939F3D34A39F277257BBA9AC2F3E0E0 /* Pods-YellowLineIsGood-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YellowLineIsGood-dummy.m"; sourceTree = "<group>"; };
+		631B4DD9A19919E769BDECE26ECDFA0A /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		763FC34AE21EF1F1F6CCBB3DAE7E23DA /* Pods-YellowLineIsGood-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YellowLineIsGood-acknowledgements.markdown"; sourceTree = "<group>"; };
+		78DCBA363FF3D58DB33FE0EBCEB856CF /* Pods_YellowLineIsGood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YellowLineIsGood.framework; path = "Pods-YellowLineIsGood.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		879522222AD1481E29AC630722EE6E53 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		87ECBB7592A9EC90FF2CE380F8286AB7 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5AA13978CEC0BAA3909A86025258401 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		A694219428A0D2A9F12572807A116D6C /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		AA28CDEC0F9954BFEF163D466A2DBD7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07C59981FEC928850EB0D794A5E134E /* Pods-YellowLineIsGood-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YellowLineIsGood-frameworks.sh"; sourceTree = "<group>"; };
 		BDC11A12C80A754748AD70D286FA219E /* Pods-YellowLineIsGood-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YellowLineIsGood-acknowledgements.plist"; sourceTree = "<group>"; };
+		CB09347BE9438EB130F5CCF249DA71EB /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D5FDBB710BEF164B09970D8E1F22FFE3 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		DC9AA12147C939D3750E1AF39D8DF339 /* Pods-YellowLineIsGood.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YellowLineIsGood.modulemap"; sourceTree = "<group>"; };
 		DCDEBA108C885727C5F3D379FDBD388B /* Pods-YellowLineIsGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YellowLineIsGood.debug.xcconfig"; sourceTree = "<group>"; };
-		E004374149D836C1256FFFCB38FECB72 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		F95DB7ACF73CF03040C57A3D42223A51 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E759617EF8AF117A5FFF0354F42BE388 /* Frameworks */ = {
+		8CBCAA56FFB657D10754DE6065541D82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81E1ACA81FC1B0E0B6A7B87FBBD77047 /* Foundation.framework in Frameworks */,
+				9ED63C288D132822C06EC681159A2591 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9EE10CE9B62C0431E4B3AD40403711C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABA5AF378BB40E3BB4A523883C477DA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1418B056D31B27EE2CEBA552B5ADFE56 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				501562BF592517FC6A65661FF1B35C78 /* Frameworks */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
-		243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				1418B056D31B27EE2CEBA552B5ADFE56 /* Base */,
-				6BC99F081C91F80679CFA5DDC6213D57 /* Maps */,
-			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
 		3E3BB8922D02BC0F4D57765A12E97DEA /* Pods-YellowLineIsGood */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +92,13 @@
 			path = "Target Support Files/Pods-YellowLineIsGood";
 			sourceTree = "<group>";
 		};
-		501562BF592517FC6A65661FF1B35C78 /* Frameworks */ = {
+		4D9FA1CB79380B01E10B4801F941B0F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E004374149D836C1256FFFCB38FECB72 /* GoogleMapsBase.framework */,
+				78DCBA363FF3D58DB33FE0EBCEB856CF /* Pods_YellowLineIsGood.framework */,
+				348783CA6E37031577C9E0C1CDC5EA86 /* SwiftyJSON.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5150252D6E1BCFC93576956ABE5E43A0 /* Targets Support Files */ = {
@@ -96,29 +109,32 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */ = {
+		5732767885B2BCAB221B798B25BFD824 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */,
+				5BD4D045547A5CF06E2212DC0F2E3DB9 /* GoogleMaps */,
+				85C21327B0793C6CC31030E3B6E21319 /* SwiftyJSON */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6BC99F081C91F80679CFA5DDC6213D57 /* Maps */ = {
+		5BD4D045547A5CF06E2212DC0F2E3DB9 /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */,
-				7679C02ACA204A8841D527A6548CA23E /* Resources */,
+				BCF5E35DA1E58B03D48C515EE0BDA60E /* Base */,
+				666C218C6447D5A5AA8E83AC568075AF /* Maps */,
 			);
-			name = Maps;
+			name = GoogleMaps;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
-		70E3B8878A35FFBA1B8C8E6A09070FEC /* Products */ = {
+		666C218C6447D5A5AA8E83AC568075AF /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				40CFCAB963030CF21D960C1FE1253D51 /* Pods_YellowLineIsGood.framework */,
+				CD914957FAD3C64AE3DEEA624BC7E995 /* Frameworks */,
+				960E546BCD7655FB054D5414CDF529C4 /* Resources */,
 			);
-			name = Products;
+			name = Maps;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -129,12 +145,18 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7679C02ACA204A8841D527A6548CA23E /* Resources */ = {
+		76DB70F4542998970BD62A8C68C3FD97 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */,
+				AA28CDEC0F9954BFEF163D466A2DBD7D /* Info.plist */,
+				D5FDBB710BEF164B09970D8E1F22FFE3 /* SwiftyJSON.modulemap */,
+				631B4DD9A19919E769BDECE26ECDFA0A /* SwiftyJSON.xcconfig */,
+				48A456AC48644BBD4BFA04C021D921F0 /* SwiftyJSON-dummy.m */,
+				A5AA13978CEC0BAA3909A86025258401 /* SwiftyJSON-prefix.pch */,
+				336FACD7A5DDB6B2B0AF556217C9D395 /* SwiftyJSON-umbrella.h */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -142,10 +164,36 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */,
-				70E3B8878A35FFBA1B8C8E6A09070FEC /* Products */,
+				5732767885B2BCAB221B798B25BFD824 /* Pods */,
+				4D9FA1CB79380B01E10B4801F941B0F4 /* Products */,
 				5150252D6E1BCFC93576956ABE5E43A0 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		85C21327B0793C6CC31030E3B6E21319 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				A694219428A0D2A9F12572807A116D6C /* SwiftyJSON.swift */,
+				76DB70F4542998970BD62A8C68C3FD97 /* Support Files */,
+			);
+			name = SwiftyJSON;
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		960E546BCD7655FB054D5414CDF529C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58D6959096B3281450730B0D718188CF /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		97670FD6FFBFFE59C304195E7E5806B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB09347BE9438EB130F5CCF249DA71EB /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -156,11 +204,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */ = {
+		BCF5E35DA1E58B03D48C515EE0BDA60E /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				F95DB7ACF73CF03040C57A3D42223A51 /* GoogleMaps.framework */,
-				36DB83CB4279B90D59054691B89501D1 /* GoogleMapsCore.framework */,
+				97670FD6FFBFFE59C304195E7E5806B0 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		CD914957FAD3C64AE3DEEA624BC7E995 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				879522222AD1481E29AC630722EE6E53 /* GoogleMaps.framework */,
+				87ECBB7592A9EC90FF2CE380F8286AB7 /* GoogleMapsCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,32 +224,58 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D4BC28467E6BE686F4D6E5EF1BE3A962 /* Headers */ = {
+		51C1AAEDF4D321CCF76EFCFC95FD7730 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C84085F495B94E110639F0C1BA39B52C /* Pods-YellowLineIsGood-umbrella.h in Headers */,
+				69C4EDCA4FE551A90F821ADF8480D719 /* Pods-YellowLineIsGood-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3D8E14F5D3762987AF148E652467938 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE97509181B4F74DF7BCBF2FED205B8 /* SwiftyJSON-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FEB2BB74DCFCCDBB0FA02A05F3906B7D /* Pods-YellowLineIsGood */ = {
+		01B3E008D0E289805BE261785DC4F8A7 /* SwiftyJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30C10BC321F2ECDA4D5916966207C7B5 /* Build configuration list for PBXNativeTarget "Pods-YellowLineIsGood" */;
+			buildConfigurationList = 3F0DCBAE10C1A244B5E4D67C59DD77B3 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
 			buildPhases = (
-				AB1DBF2BA9F13396787C9A8C7BC18F3A /* Sources */,
-				E759617EF8AF117A5FFF0354F42BE388 /* Frameworks */,
-				D4BC28467E6BE686F4D6E5EF1BE3A962 /* Headers */,
+				7E730EF72521D10072AD94B256A228FD /* Sources */,
+				F9EE10CE9B62C0431E4B3AD40403711C /* Frameworks */,
+				E3D8E14F5D3762987AF148E652467938 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 348783CA6E37031577C9E0C1CDC5EA86 /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAD1E6863E7EA6FFD1485AA56A362C63 /* Pods-YellowLineIsGood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C88A15A395E394B996BFAE6412C5EA1 /* Build configuration list for PBXNativeTarget "Pods-YellowLineIsGood" */;
+			buildPhases = (
+				630847224E68B03DB1F03B56B8485AB3 /* Sources */,
+				8CBCAA56FFB657D10754DE6065541D82 /* Frameworks */,
+				51C1AAEDF4D321CCF76EFCFC95FD7730 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E767EDE7F553C99961170F171240C933 /* PBXTargetDependency */,
+			);
 			name = "Pods-YellowLineIsGood";
 			productName = "Pods-YellowLineIsGood";
-			productReference = 40CFCAB963030CF21D960C1FE1253D51 /* Pods_YellowLineIsGood.framework */;
+			productReference = 78DCBA363FF3D58DB33FE0EBCEB856CF /* Pods_YellowLineIsGood.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -213,30 +295,81 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 70E3B8878A35FFBA1B8C8E6A09070FEC /* Products */;
+			productRefGroup = 4D9FA1CB79380B01E10B4801F941B0F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FEB2BB74DCFCCDBB0FA02A05F3906B7D /* Pods-YellowLineIsGood */,
+				EAD1E6863E7EA6FFD1485AA56A362C63 /* Pods-YellowLineIsGood */,
+				01B3E008D0E289805BE261785DC4F8A7 /* SwiftyJSON */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AB1DBF2BA9F13396787C9A8C7BC18F3A /* Sources */ = {
+		630847224E68B03DB1F03B56B8485AB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FECD7CC7E14DCA11A68A117FB3587CEB /* Pods-YellowLineIsGood-dummy.m in Sources */,
+				2571B110A14340B6FDB2C2EA88B0CAD3 /* Pods-YellowLineIsGood-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E730EF72521D10072AD94B256A228FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				720FF415F1F6165A378CDEC18CB95714 /* SwiftyJSON-dummy.m in Sources */,
+				F0161EFBB4A20CEE5F027543007EDFD7 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E767EDE7F553C99961170F171240C933 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = 01B3E008D0E289805BE261785DC4F8A7 /* SwiftyJSON */;
+			targetProxy = 4BF6FFA1B8C0E482AAAC988072E78CCA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		45A46AB1C105DBF67AE8EC808970673C /* Debug */ = {
+		21262924DE46057E662A0E6B30572067 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCDEBA108C885727C5F3D379FDBD388B /* Pods-YellowLineIsGood.debug.xcconfig */;
+			baseConfigurationReference = 631B4DD9A19919E769BDECE26ECDFA0A /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5119BE899513C76FCC80BC8C348F2E24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 631B4DD9A19919E769BDECE26ECDFA0A /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -249,13 +382,46 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C04D431912CD20A30D1348DB6017417 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F80515D87B754D49D007F6E0BD39C6 /* Pods-YellowLineIsGood.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-YellowLineIsGood/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-YellowLineIsGood/Pods-YellowLineIsGood.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -267,7 +433,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		A435E3C35B2666C25C53422D898980A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -313,6 +479,42 @@
 			};
 			name = Debug;
 		};
+		B28FAB3A205B32F13F7F54555606CD94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDEBA108C885727C5F3D379FDBD388B /* Pods-YellowLineIsGood.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-YellowLineIsGood/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YellowLineIsGood/Pods-YellowLineIsGood.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_YellowLineIsGood;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		F2C4F47FC8AD76198661C5EFDE751899 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -353,41 +555,6 @@
 			};
 			name = Release;
 		};
-		F3B19E947A7726822CB53476C6901713 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40F80515D87B754D49D007F6E0BD39C6 /* Pods-YellowLineIsGood.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-YellowLineIsGood/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-YellowLineIsGood/Pods-YellowLineIsGood.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_YellowLineIsGood;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -400,11 +567,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30C10BC321F2ECDA4D5916966207C7B5 /* Build configuration list for PBXNativeTarget "Pods-YellowLineIsGood" */ = {
+		3F0DCBAE10C1A244B5E4D67C59DD77B3 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				45A46AB1C105DBF67AE8EC808970673C /* Debug */,
-				F3B19E947A7726822CB53476C6901713 /* Release */,
+				5119BE899513C76FCC80BC8C348F2E24 /* Debug */,
+				21262924DE46057E662A0E6B30572067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C88A15A395E394B996BFAE6412C5EA1 /* Build configuration list for PBXNativeTarget "Pods-YellowLineIsGood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B28FAB3A205B32F13F7F54555606CD94 /* Debug */,
+				7C04D431912CD20A30D1348DB6017417 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

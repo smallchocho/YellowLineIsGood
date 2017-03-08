@@ -44,11 +44,14 @@
                     </view>
                     <connections>
                         <outlet property="triangleView" destination="lSc-mO-yHV" id="VwC-4a-2dE"/>
-                        <outlet property="yellowLineMarkerSnippet" destination="Hh4-jD-Ki8" id="ob9-Nv-wMA"/>
+                        <outlet property="yellowLineMarkerFreeTime" destination="uOb-m8-8bs" id="Jcn-vb-0Ge"/>
+                        <outlet property="yellowLineMarkerSnippet" destination="Hh4-jD-Ki8" id="Qym-hm-LdG"/>
+                        <outlet property="yellowLineMarkerTitle" destination="yNC-Zq-Csh" id="PAx-wY-DBC"/>
+                        <outlet property="yellowLineMarkerfreeStatus" destination="u1e-B9-Wp5" id="s3T-x6-9Uh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" restorationIdentifier="InfoWindowOfMarker" id="Hh4-jD-Ki8">
+                <view contentMode="scaleToFill" id="Hh4-jD-Ki8">
                     <rect key="frame" x="0.0" y="0.0" width="222" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -77,6 +80,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySK-EH-zBf">
                                             <rect key="frame" x="0.0" y="61" width="153" height="30"/>
                                             <state key="normal" title="點此導航到此黃線路段"/>
+                                            <connections>
+                                                <action selector="navigateToYellowLine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gcE-6P-Hy0"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -105,6 +111,9 @@
                             <state key="normal" title="點擊查看黃線範圍">
                                 <color key="titleColor" red="0.015392103230000001" green="0.5000998378" blue="0.89876431229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="checkYellowLine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbN-67-Pb2"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.77275961640000002" green="0.88920813799999998" blue="0.96859794860000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

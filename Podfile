@@ -9,4 +9,5 @@ target 'YellowLineIsGood' do
   source 'https://github.com/CocoaPods/Specs.git'
   platform :ios, '8.1'
   pod 'GoogleMaps', '~> 2.1.1'
+  pod 'SwiftyJSON','~> 3.1.1'
 end
