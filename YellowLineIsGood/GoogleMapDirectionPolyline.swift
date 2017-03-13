@@ -10,18 +10,10 @@ import Foundation
 import CoreLocation
 import SwiftyJSON
 import GoogleMaps
-class GoogleMapDirection{
-    //    let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
-    //    var selectedRoute: Dictionary<String, String>!
-    //    var overviewPolyline: Dictionary<String, String>!
-    //    var originCoordinate: CLLocationCoordinate2D!
-    //    var destinationCoordinate: CLLocationCoordinate2D!
-    //    var originAddress: String!
-    //    var destinationAddress: String!
-    static func getPolyline() ->String{
+class GoogleMapDirectionPolyline{
+    var polyline = GMSPolyline()
+    func drawYellowLine(mapView:GMSMapView,origin:String,destination:String){
         let googleDirectionKey = "AIzaSyD6LoSBok2GeFIJZQbkNjFfwj7kIifkGhc"
-        let origin = "台北市中正區南海路51號"
-        let destination = "台北市中正區南海路53號"
         var urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=\(googleDirectionKey)"
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let url = URL(string: urlString)
@@ -32,17 +24,23 @@ class GoogleMapDirection{
                 return
             }
             if let jsonData = data{
-                let okJsonData = JSON(data:jsonData)
-                polylineString = okJsonData["routes"][0]["overview_polyline"]["points"].stringValue
-                print(polylineString)
+                DispatchQueue.main.async {
+                    let okJsonData = JSON(data:jsonData)
+                    polylineString = okJsonData["routes"][0]["overview_polyline"]["points"].stringValue
+                    let path = GMSMutablePath(fromEncodedPath: polylineString)
+                    self.polyline = GMSPolyline(path: path)
+                    self.polyline.map = mapView
+                    self.polyline.strokeWidth = 13
+                    self.polyline.strokeColor = UIColor(colorLiteralRed: 255/255, green: 209/255, blue: 25/255, alpha: 1.0)
+                }
             }
-            
         })
         getting.resume()
-        return polylineString
     }
-    
-
+    func removeYellowLine(){
+        self.polyline.map = nil
+        self.polyline.path = GMSPath(fromEncodedPath: "")
+    }
 }
 
 
