@@ -11,23 +11,29 @@ import GoogleMaps
 import MapKit
 import SwiftyJSON
 
-class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate{
+class MapViewController: UIViewController{
     //from Storyboard
-    @IBOutlet var yellowLineMarkerSnippet: UIView!
+    
+    //Map Marker
+    @IBOutlet weak var marker: UIView!
+    @IBOutlet weak var markerLabel: UILabel!
+    //Marker Info Window
+    @IBOutlet weak var yellowLineMarkerSnippet: UIView!
     @IBOutlet weak var yellowLineMarkerTitle: UILabel!
     @IBOutlet weak var yellowLineMarkerFreeTime: UILabel!
     @IBOutlet weak var yellowLineMarkerfreeStatus: UILabel!
     @IBOutlet weak var triangleView: UIView!
+    //Marker Info Window Button
     @IBAction func checkYellowLine(_ sender: UIButton) {
         if tapMarker != nil{
             yellowLineMarkerSnippet.removeFromSuperview()
             changeCameraPositionForMarker(mapView: self.mapView, marker: tapMarker,distanceFromMarker:0,zoom:19.0)
         }
-        removeYellowLine()
         let origin = (tapMarker.userData as! [String:Any])["startPoint"] as! String
         let destination = (tapMarker.userData as! [String:Any])["endPoint"] as! String
-        drawYellowLine(mapView: self.mapView,origin: origin, destination: destination)
-//        draw()
+        //畫出黃線
+        polylineOfYellowLine.drawYellowLine(mapView: self.mapView,origin: origin, destination: destination)
+        
     }
     @IBAction func navigateToYellowLine(_ sender: UIButton) {
         if tapMarker != nil{
@@ -36,21 +42,28 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDe
     }
     @IBAction func showNowLoccation(_ sender: UIButton) {
         print("點現在位置")
-        
         locationManager.startUpdatingLocation()
         yellowLineMarkerSnippet.removeFromSuperview()
     }
+    var isFirstLoading = true
     var mapView:GMSMapView!
     var locationManager = CLLocationManager()
-    var polylineOfYellowLine = GMSPolyline()
+    var polylineOfYellowLine = GoogleMapDirectionPolyline()
     var drawView = DrawSpecificView()
     var tapMarker:GMSMarker!
     var yellowlineData = YellowLineData().data
+    
+    
+    @IBAction func goToSearchResult(_ sender: UIButton) {
+        performSegue(withIdentifier: "presentSeachTableView", sender: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //設定locationManager的delegate
         locationManager.delegate = self
-        drawView.drawTriangle(superView: self.triangleView, fillCgColor: UIColor(colorLiteralRed: 197/255, green: 227/255, blue: 247/255, alpha: 1).cgColor)
+        drawView.drawTriangle(superView: self.triangleView, fillCgColor: UIColor(colorLiteralRed: 255/255, green: 199/255, blue: 31/255, alpha: 1).cgColor)
         //設定MapView並加入SuperView
         setUpMapView()
         //設定mapview的delegate
@@ -62,9 +75,12 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDe
     }
     override func viewDidAppear(_ animated: Bool) {
         //提醒視窗
+        if isFirstLoading == false{
+            return
+        }
+        isFirstLoading = false
         presentAlert(alertTitle: "黃線好停車", alertMessage: "黃線好停車目前只提供假日可免費不限時停車地點，但是政府政策可能會轉彎，亦請車主至現場停車時以現場告示牌為準", actionTitle: "好的，知道了", actionHandler: nil)
     }
-    
     //也可以用Gmap的Delegate在一開始時顯示目前位置
     //    func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
     //        let location = mapView.myLocation
@@ -72,11 +88,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,GMSMapViewDe
     //        mapView.animate(to: camera)
     //    }
 }
-//CLLocationManagerDelegate相關
-extension MapViewController{
+// MARK:CLLocationManagerDelegate
+extension MapViewController:CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
-        
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:14)
         mapView.animate(to: camera)
         
@@ -84,17 +99,15 @@ extension MapViewController{
         self.locationManager.stopUpdatingLocation()
     }
 }
-//GMSMaperDelegate相關
-extension MapViewController{
+// MARK:GMSMaperDelegate
+extension MapViewController:GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         if gesture == true{
 //            yellowLineMarkerSnippet.removeFromSuperview()
         }
     }
-    
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         yellowLineMarkerSnippet.removeFromSuperview()
-       
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -104,6 +117,8 @@ extension MapViewController{
         changeCameraPositionForMarker(mapView: mapView, marker: marker, distanceFromMarker:80 , zoom: nil)
         //設定makerInfoWindow並加入mapView
         addInfoWindowOfMarker(mapView: mapView, marker: marker)
+        //清除已經顯示的黃線
+        polylineOfYellowLine.removeYellowLine()
         return true
     }
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
@@ -117,7 +132,8 @@ extension MapViewController{
         }
     }
 }
-//UI相關方法
+
+// MARK:UI相關方法
 extension MapViewController{
     //Set up GMSmapView
     func setUpMapView(){
@@ -138,7 +154,7 @@ extension MapViewController{
         let count = self.yellowlineData["yellowLine"]!.count
         for i in 0...count - 1{
             let address = self.yellowlineData["yellowLine"]?[i]["startPoint"] as! String
-            print(address)
+            let holidayFree = self.yellowlineData["yellowLine"]?[i]["holidayFree"] as! Bool
             let geocoder = CLGeocoder()
             let marker = GMSMarker()
             var markerLocation = CLLocationCoordinate2D()
@@ -159,9 +175,15 @@ extension MapViewController{
                     print("No location in placeMark")
                     return
                 }
-                print(location.coordinate)
+                if self.checkYellowLineIsAvailableNow(nowDate: Date(), holidayFree: holidayFree){
+                    self.markerLabel.text = "免"
+                }else{
+                    self.markerLabel.text = "X"
+                }
                 markerLocation = location.coordinate
                 marker.position = markerLocation
+                self.marker.frame = CGRect(x: 0.0, y: 0.0, width:UIScreen.main.bounds.width/8, height: UIScreen.main.bounds.width/8)
+                marker.iconView = self.marker
                 marker.appearAnimation = kGMSMarkerAnimationPop
                 marker.map = insertMapView
                 marker.userData = self.yellowlineData["yellowLine"]?[i]
@@ -173,7 +195,12 @@ extension MapViewController{
         //設定InfoWindow的內容顯示
         yellowLineMarkerTitle.text = (marker.userData as! [String:Any])["title"] as? String
         yellowLineMarkerFreeTime.text = (marker.userData as! [String:Any])["freeTime"] as? String
-        yellowLineMarkerSnippet.removeFromSuperview()
+        let holidayFree = (marker.userData as! [String:Any])["holidayFree"] as? Bool
+        if self.checkYellowLineIsAvailableNow(nowDate: Date(), holidayFree: holidayFree!){
+            self.yellowLineMarkerfreeStatus.text = "現在免費中"
+        }else{
+            self.yellowLineMarkerfreeStatus.text = "現在禁止停車"
+        }
         //把InfoWindow加入mapView
         self.mapView.addSubview(yellowLineMarkerSnippet)
         //抓取marker的目前位置並映射到mapView的座標
@@ -195,13 +222,38 @@ extension MapViewController{
         let camera = GMSCameraPosition.camera(withLatitude: changePosition.latitude, longitude: changePosition.longitude, zoom: inputZoom)
         mapView.animate(to: camera)
     }
-    
     //Alert
     func presentAlert(alertTitle:String?,alertMessage:String?,actionTitle:String?,actionHandler:((UIAlertAction)->Void)?){
         let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: actionTitle, style: .cancel, handler: actionHandler)
         errorAlert.addAction(defaultAction)
         present(errorAlert, animated: true, completion: nil)
+    }
+    //確認現在時間是否可停車
+    func checkYellowLineIsAvailableNow(nowDate:Date,holidayFree:Bool)->Bool{
+        let nowWeekDay = DateManager.nowWeekDay(date: Date())
+        let nowHour = DateManager.nowHour(date: Date())
+//        let nowHour = 10
+        if holidayFree == true{
+            switch nowWeekDay{
+            case 0:
+                return true
+            case 7:
+                return true
+            default:
+                if nowHour >= 20 || nowHour < 7{
+                    return true
+                }else{
+                    return false
+                }
+            }
+        }else{
+            if nowHour >= 20 || nowHour < 7{
+                return true
+            }else{
+                return false
+            }
+        }
     }
 }
 extension MapViewController{
@@ -229,34 +281,7 @@ extension MapViewController{
             }
         }
     }
-    //Draw Yellow line
-    func drawYellowLine(mapView:GMSMapView,origin:String,destination:String){
-        let googleDirectionKey = "AIzaSyD6LoSBok2GeFIJZQbkNjFfwj7kIifkGhc"
-        var urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=\(googleDirectionKey)"
-        urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let url = URL(string: urlString)
-        var polylineString = ""
-        let getting = URLSession.shared.dataTask(with: url!, completionHandler: {
-            (data:Data?,response:URLResponse?,error:Error?) in
-            if error != nil{
-                return
-            }
-            if let jsonData = data{
-                let okJsonData = JSON(data:jsonData)
-                polylineString = okJsonData["routes"][0]["overview_polyline"]["points"].stringValue
-                let path = GMSMutablePath(fromEncodedPath: polylineString)
-                self.polylineOfYellowLine = GMSPolyline(path: path)
-                self.polylineOfYellowLine.map = mapView
-                self.polylineOfYellowLine.strokeWidth = 13
-                self.polylineOfYellowLine.strokeColor = UIColor(colorLiteralRed: 255/255, green: 209/255, blue: 25/255, alpha: 1.0)
-            }
-        })
-        getting.resume()
-    }
-    func removeYellowLine(){
-        polylineOfYellowLine.map = nil
-        polylineOfYellowLine.path = GMSPath(fromEncodedPath: "")
-    }
+    
 }
 
 
