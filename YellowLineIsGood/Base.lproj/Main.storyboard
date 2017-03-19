@@ -38,13 +38,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黃線好停車" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ai7-fs-s9o">
-                                        <rect key="frame" x="136.5" y="36" width="102" height="24"/>
+                                        <rect key="frame" x="137" y="36" width="102" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byj-Uo-Nnz">
-                                        <rect key="frame" x="332.5" y="31.5" width="32.5" height="33"/>
+                                        <rect key="frame" x="332" y="32" width="33" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="byj-Uo-Nnz" secondAttribute="height" multiplier="1:1" id="Hx6-Eo-Miq"/>
                                         </constraints>
@@ -100,22 +100,22 @@
                             <rect key="frame" x="0.0" y="64" width="222" height="158"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ns6-d8-cja">
-                                    <rect key="frame" x="34" y="32" width="153" height="91"/>
+                                    <rect key="frame" x="34" y="32" width="153" height="92"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-Zq-Csh">
-                                            <rect key="frame" x="60" y="0.0" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="60" y="0.0" width="34" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="免費時段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOb-m8-8bs">
-                                            <rect key="frame" x="42" y="30.5" width="69.5" height="20.5"/>
+                                            <rect key="frame" x="42" y="31" width="70" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySK-EH-zBf">
-                                            <rect key="frame" x="0.0" y="61" width="153" height="30"/>
+                                            <rect key="frame" x="0.0" y="62" width="153" height="30"/>
                                             <state key="normal" title="點此導航到此黃線路段">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -132,7 +132,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="免費狀態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1e-B9-Wp5">
-                            <rect key="frame" x="76.5" y="23.5" width="69.5" height="20.5"/>
+                            <rect key="frame" x="76" y="23" width="70" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>

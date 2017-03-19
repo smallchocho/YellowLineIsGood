@@ -15,18 +15,23 @@ class GoogleMapDirectionPolyline{
     func drawYellowLine(mapView:GMSMapView,origin:String,destination:String){
         let googleDirectionKey = "AIzaSyD6LoSBok2GeFIJZQbkNjFfwj7kIifkGhc"
         var urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&key=\(googleDirectionKey)"
+        print(urlString)
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
         let url = URL(string: urlString)
+      
         var polylineString = ""
         let getting = URLSession.shared.dataTask(with: url!, completionHandler: {
             (data:Data?,response:URLResponse?,error:Error?) in
             if error != nil{
+                print(error.debugDescription)
                 return
             }
             if let jsonData = data{
                 DispatchQueue.main.async {
                     let okJsonData = JSON(data:jsonData)
                     polylineString = okJsonData["routes"][0]["overview_polyline"]["points"].stringValue
+                    print(polylineString)
                     let path = GMSMutablePath(fromEncodedPath: polylineString)
                     self.polyline = GMSPolyline(path: path)
                     self.polyline.map = mapView
