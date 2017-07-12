@@ -8,6 +8,10 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
+import UserNotifications
+import FirebaseInstanceID
+import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +21,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyCGqRksasvIm4GJQzurSQ79pPgPHT04n70")
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            Messaging.messaging().delegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        application.registerForRemoteNotifications()
+        if !UIApplication.shared.isRegisteredForRemoteNotifications {
+            let alert = UIAlertController(title: "請開啟通知設定", message: "不然無法接收到設定喔", preferredStyle: UIAlertControllerStyle.alert)
+            let settingAction = UIAlertAction(title: "前往設定", style: UIAlertActionStyle.default, handler: nil)
+            let okAction = UIAlertAction(title: "好喔", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(settingAction)
+            alert.addAction(okAction)
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        FirebaseApp.configure()
         return true
     }
 
@@ -32,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -44,4 +73,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+@available(iOS 10.0, *)
+extension AppDelegate:UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        let request = notification.request
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        completionHandler([.alert,.badge,.sound])
+        
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("打開訊息喔")
+    }
+}
 
+
+extension AppDelegate:MessagingDelegate{
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print(fcmToken)
+    }
+}

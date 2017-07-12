@@ -60,6 +60,9 @@ class MapViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         //設定locationManager的delegate
         locationManager.delegate = self
         drawView.drawTriangle(superView: self.triangleView, fillCgColor: UIColor(colorLiteralRed: 255/255, green: 199/255, blue: 31/255, alpha: 1).cgColor)
@@ -76,11 +79,30 @@ class MapViewController: UIViewController{
         //確認passValueDelegate傳值成功後解出位置後調整camera
         checkPassedValueAndChangeCamera()
         //打開軟體時套出提醒視窗
-        if isFirstLoading == true{
-            presentAlert(alertTitle: "黃線好停車", alertMessage: "黃線好停車目前只提供假日可免費不限時停車地點，但是政府政策可能會轉彎，亦請車主至現場停車時以現場告示牌為準", actionTitle: "好的，知道了", actionHandler: nil)
-            isFirstLoading = false
+//        if isFirstLoading == true{
+//            presentAlert(alertTitle: "黃線好停車", alertMessage: "黃線好停車目前只提供假日可免費不限時停車地點，但是政府政策可能會轉彎，亦請車主至現場停車時以現場告示牌為準", actionTitle: "好的，知道了", actionHandler: nil)
+//            isFirstLoading = false
+//        }
+        if !UIApplication.shared.isRegisteredForRemoteNotifications {
+            let alert = UIAlertController(title: "請開啟通知設定", message: "不然無法接收到設定喔", preferredStyle: UIAlertControllerStyle.alert)
+            let settingAction = UIAlertAction(title: "前往設定", style: UIAlertActionStyle.default, handler: {(_) in
+                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)else{ return }
+                if #available(iOS 10.0, *) {
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                            print("Settings opened: \(success)") // Prints true
+                        })
+                    }
+                }
+            })
+            let okAction = UIAlertAction(title: "好喔", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(settingAction)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentSeachTableView"{
             let destination = segue.destination as!SearchResultTableController

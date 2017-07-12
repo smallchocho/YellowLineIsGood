@@ -10,4 +10,7 @@ target 'YellowLineIsGood' do
   platform :ios, '8.1'
   pod 'GoogleMaps', '~> 2.1.1'
   pod 'SwiftyJSON','~> 3.1.1'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 end
